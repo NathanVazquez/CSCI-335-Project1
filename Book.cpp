@@ -1,5 +1,6 @@
 #include "Book.hpp"
 #include <iterator>
+#include <bits/stdc++.h>
     //how to do we move all the members of a vector
     //make a new vector, go through all the items in the orinal item and then delete them
     // to copy a  pointer A*  to B*
@@ -172,13 +173,24 @@
         std::cout<< "Author: " << author_<< "\n"; 
         std::cout<< "ISBN: " << ISBN_<< "\n";
         std::cout<< "Icon: " << *icon_<< "\n"; //this needs to be fixed
-        std::cout<< "Price: " << price_<< "\n";
-        std::cout<< "Keywords: ";
-
-        bool first_item =true;
         
-        // std::cout<<keywords_.size() << std::endl;
+        // for(int y = 0; y < 10; y++)
+        // {                   
+        //     unsigned char bytes[100];
+        //     for(int i = 0; i < sizeof(icon_); i++)
+        //         icon_[i] = rand() % 2;
+        //     for(int x = 0; x < 10; x++)
+        //     {
+        //         int i = y * 10 + x;
+        //         printf("%d ", icon_[i]);
+        //     }
+        //     printf("\n");
+        // }   
 
+        std::cout<< std::fixed << std::setprecision(2) <<"Price: "<<price_<< "\n";
+        std::cout<< "Keywords: ";
+        bool first_item =true;
+        // std::cout<<keywords_.size() << std::endl;
         for(std::string keyword : keywords_){
             first_item ? std::cout<<"" : std::cout<<", "; 
             std::cout<< keyword;
@@ -192,6 +204,4 @@
         std::cout<< "\n";
         std::cout<< "Blurb: " << blurb_ << "\n";
         std::cout<<"\n";
-
-
     }

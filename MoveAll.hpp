@@ -4,4 +4,4 @@
 #include <chrono>
 #include "Book.hpp"
 
-void moveAll (const std::string, std::vector<Book> &, std::vector<Book> &);
+void moveAll (const std::string keyword, std::vector<Book> &source, std::vector<Book> &dest);
