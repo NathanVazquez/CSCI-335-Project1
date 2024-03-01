@@ -14,7 +14,7 @@
         ISBN_ = 0;
         icon_ = nullptr; // check if this is correct
         price_= 0.0;
-        keywords_ = { "" };
+        keywords_;
         blurb_ = "";
         //looks good
     }
@@ -34,13 +34,13 @@
         icon_ = rhs.icon_; // check if this is correct
         price_= rhs.price_;
 
-        keywords_ = std::move(rhs.keywords_);
+        //keywords_ = std::move(rhs.keywords_);
         // for (auto keyword : rhs.keywords_){
-        //     keywords_.push_back(keyword);
+        //      keywords_ = std::move(keyword);
         // }
 
         //Do I need to write a loop here?
-        //keywords_ = rhs.keywords_;
+        keywords_ = rhs.keywords_;
         blurb_ = rhs.blurb_;
     }
 
@@ -151,7 +151,7 @@
 
     void Book::setKeywords(const std::vector<std::string>& keywords)
     {
-
+        keywords_ = keywords;
     }
 
     const std::string& Book::getBlurb() const
@@ -174,12 +174,21 @@
         std::cout<< "Icon: " << *icon_<< "\n"; //this needs to be fixed
         std::cout<< "Price: " << price_<< "\n";
         std::cout<< "Keywords: ";
+
         bool first_item =true;
-        for(std::string word : keywords_){
+        
+        // std::cout<<keywords_.size() << std::endl;
+
+        for(std::string keyword : keywords_){
             first_item ? std::cout<<"" : std::cout<<", "; 
-            std::cout<< word;
+            std::cout<< keyword;
             first_item = false;
         }
+
+        // for ( int i = 0; i<keywords_.size();i++ ) {
+        //     std::cout<< keywords_[i];
+        // }
+        
         std::cout<< "\n";
         std::cout<< "Blurb: " << blurb_ << "\n";
         std::cout<<"\n";
