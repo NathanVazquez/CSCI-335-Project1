@@ -13,9 +13,9 @@ void moveAll (const std::string keyword, std::vector<Book> &source, std::vector<
 
   int i = 0;
   for (Book curr_book : source ){
-    std::cout<<"current book: "<<curr_book.getTitle() <<"\n";
+    //std::cout<<"current book: "<<curr_book.getTitle() <<"\n";
     for(std::string curr_keyword : curr_book.getKeywords()){
-      std::cout<<"current word: "<< curr_keyword <<"!= "<< keyword<<"\n";
+      //std::cout<<"current word: "<< curr_keyword <<"!= "<< keyword<<"\n";
       if(keyword == curr_keyword){
         dest.push_back(std::move(curr_book));
         books_moved++;
@@ -23,7 +23,7 @@ void moveAll (const std::string keyword, std::vector<Book> &source, std::vector<
       }
       i++;
     }
-    std::cout<<"\n";
+    //std::cout<<"\n";
     i=0;
   }
   //std::cout<< "size of cart: "<<dest.size()<<"\n";

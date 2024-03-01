@@ -179,7 +179,7 @@ int main(){
   // write your test cases here
   //testMoveAll(cart);
   //testPrintAllBooks(catalog);
-  testPrintAllMovedBooks(catalog,cart);
+  //testPrintAllMovedBooks(catalog,cart);
   
  
 
