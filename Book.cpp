@@ -193,11 +193,11 @@ Contributor: Nathan Vazquez
         for (int i = 0 ; i<80;i++){
             //curr_icon+= std::to_string(*icon_ptr) + " ";
             //icon_ptr++;
-            if(i!=79){
-            std::cout<<icon_[i]<< " "; 
-            }else{
-                std::cout<<icon_[i];
+            std::cout<<icon_[i];
+            if(i<79){
+            std::cout<< " "; 
             }
+           
         
         }
 
