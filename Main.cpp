@@ -6,7 +6,9 @@
 #include <sstream>
 #include "Book.hpp"
 #include "MoveAll.hpp"
-  void testMoveAll(std::vector<Book> cart){
+  void testMoveAll(std::vector<Book> catalog,std::vector<Book> cart){
+
+    moveAll("Spanish Literature", catalog, cart);
 
      for (auto& curr_book : cart){
     
@@ -14,7 +16,7 @@
     curr_book.print();
     //int icons = *curr_book.getIcon();
     //std::cout<<icons;
-    break;
+    
 
     // std::cout << "Title: " << curr_book.getTitle()<<"\n";
     // std::cout << "Author: " << curr_book.getAuthor()<<"\n";
@@ -24,7 +26,7 @@
     // std::cout << "ISBN: " << curr_book.getISBN()<<"\n";
     // std::cout << "Size of keywords: " << curr_book.getKeywords().size() <<"\n"<<"\n";
 
-  }
+   }
   }
 
   void testPrintAllBooks(std::vector<Book> catalog){
@@ -35,7 +37,7 @@
       curr_book.print();
       //int icons = *curr_book.getIcon();
       //std::cout<<icons;
-      break;
+      
 
       // std::cout << "Title: " << curr_book.getTitle()<<"\n";
       // std::cout << "Author: " << curr_book.getAuthor()<<"\n";
@@ -51,14 +53,30 @@
   void testPrintAllMovedBooks(std::vector<Book> catalog, std::vector<Book> cart) {
 
     moveAll("Spanish Literature", catalog, cart);
-
-    for (auto& curr_book : cart){
+    std::cout<<"In Catalog"<<"\n"<<"\n";
+    for (auto& curr_book : catalog){
     
       //std::cout << "Amount of keywords per book: " << curr_book.getKeywords().size() <<"\n";
       curr_book.print();
       //int icons = *curr_book.getIcon();
       //std::cout<<"icons";
-      break;
+
+      // std::cout << "Title: " << curr_book.getTitle()<<"\n";
+      // std::cout << "Author: " << curr_book.getAuthor()<<"\n";
+      // std::cout << "Icon: " << curr_book.getIcon()<<"\n";
+      // std::cout << "Blurb: " << curr_book.getBlurb()<<"\n";
+      // std::cout << "Price: " << curr_book.getPrice()<<"\n";
+      // std::cout << "ISBN: " << curr_book.getISBN()<<"\n";
+      // std::cout << "Size of keywords: " << curr_book.getKeywords().size() <<"\n"<<"\n";
+
+    }
+
+    for (auto& curr_book : cart){
+      std::cout<<"In Cart"<<"\n"<<"\n";
+      //std::cout << "Amount of keywords per book: " << curr_book.getKeywords().size() <<"\n";
+      curr_book.print();
+      //int icons = *curr_book.getIcon();
+      //std::cout<<"icons";
 
       // std::cout << "Title: " << curr_book.getTitle()<<"\n";
       // std::cout << "Author: " << curr_book.getAuthor()<<"\n";
@@ -179,7 +197,7 @@ int main(){
   // write your test cases here
   //testMoveAll(cart);
   //testPrintAllBooks(catalog);
-  //testPrintAllMovedBooks(catalog,cart);
+  testPrintAllMovedBooks(catalog,cart);
   
  
 

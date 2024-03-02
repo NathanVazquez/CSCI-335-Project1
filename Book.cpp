@@ -15,14 +15,13 @@
         ISBN_ = 0;
         icon_ = nullptr; // check if this is correct
         price_= 0.0;
-        keywords_;
+        //keywords_;
         blurb_ = "";
         //looks good
     }
 
     Book::~Book()
     {
-        //std::cout<< "\n"<<"Destructor Called on " << title_ <<"\n";
         //not sure what to put here
     }
 
@@ -130,8 +129,20 @@
 
     void Book::setIcon(int* icon)
     {
-        icon_ = icon;
+        if(icon){ 
+            icon_= new int[80];
+
+
+            for (int i=0; i< 80; i++){
+                if(icon[i] >=0 && icon_[i] <= 255){
+                    icon_[i] = icon[i];
+                }
+            }
+        }else {
+            icon_ = nullptr;
+
         //return icon_;
+        }
     }
 
     float Book::getPrice() const
@@ -172,7 +183,15 @@
         std::cout<< "Title: "<<title_ <<"\n";
         std::cout<< "Author: " << author_<< "\n"; 
         std::cout<< "ISBN: " << ISBN_<< "\n";
-        std::cout<< "Icon: " << *icon_<< "\n"; //this needs to be fixed
+        std::string icon;
+        int *icon_ptr = icon_;
+        for (int i = 0 ; i<80;i++){
+            icon+= std::to_string(*icon_ptr) + " ";
+            icon_ptr++;
+        }
+        icon = icon.substr(0,icon.size()-1);
+        
+        std::cout<< "Icon: " << icon<< "\n"; //this needs to be fixed
         
         // for(int y = 0; y < 10; y++)
         // {                   
@@ -187,21 +206,18 @@
         //     printf("\n");
         // }   
 
-        std::cout<< std::fixed << std::setprecision(2) <<"Price: "<<price_<< "\n";
+        std::cout<<"Price: $";
+        std::cout<< std::fixed << std::setprecision(2) <<price_<< "\n";
+
         std::cout<< "Keywords: ";
         bool first_item =true;
-        // std::cout<<keywords_.size() << std::endl;
         for(std::string keyword : keywords_){
             first_item ? std::cout<<"" : std::cout<<", "; 
             std::cout<< keyword;
             first_item = false;
         }
-
-        // for ( int i = 0; i<keywords_.size();i++ ) {
-        //     std::cout<< keywords_[i];
-        // }
-        
         std::cout<< "\n";
+
         std::cout<< "Blurb: " << blurb_ << "\n";
         std::cout<<"\n";
     }

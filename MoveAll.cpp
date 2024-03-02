@@ -18,6 +18,7 @@ void moveAll (const std::string keyword, std::vector<Book> &source, std::vector<
       //std::cout<<"current word: "<< curr_keyword <<"!= "<< keyword<<"\n";
       if(keyword == curr_keyword){
         dest.push_back(std::move(curr_book));
+        source.erase(source.begin()+i);
         books_moved++;
         break;
       }
