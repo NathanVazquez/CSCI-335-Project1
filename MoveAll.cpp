@@ -1,5 +1,11 @@
 /*
+/*
+CSCI335 Spring 2024
+Project 3 - Tavern Class
+Given MoveAll.cpp
+2/2024
 
+----------------------------------------------------------------------------------
 CSCI 335 Spring 2024
 Project 1 - Move Semantics
 Contributor: Nathan Vazquez
@@ -19,40 +25,31 @@ void moveAll (const std::string keyword, std::vector<Book> &source, std::vector<
   int books_moved=0; // counts books moved
   // DO NOT ALTER ABOVE HERE
 
-  int index = 0;
-  // for (Book curr_book : source ){
-  //   for(std::string curr_keyword : curr_book.getKeywords() ){
-  //     if(keyword == curr_keyword){
-  //       dest.push_back(std::move(curr_book));
-  //       //source.erase(source.begin()+i);
-  //       books_moved++;
-  //       break;
-  //     }
-  //     i++;
-  //   }
-  //   //std::cout<<"\n";
-  //   i=0;
-  // }
-
-  bool found_keyword = false;
-    //for (Book curr_book : source ){
-      for(int i = 0; i<source.size();i++){
-    //for(std::string curr_keyword : curr_book.getKeywords() ){
-      for (int j = 0; j<source[i].getKeywords().size();j++){
-      if(keyword == source[i].getKeywords()[j]){
-        found_keyword=true;
-      }
-      index++;
-      if(found_keyword){
-        dest.push_back(std::move(source[i]));
+  // this function will be used to move all the books that have the keyword arguments in its keywords vector into the dest vector
+  // this int will be used to keep track of what index we are currently at in the vector for books
+  int i = 0;
+  // we are iterating through all the books in the source vector
+  for (Book curr_book : source ){
+    //next we iterate through all the keywords in the current book
+    for(std::string curr_keyword : curr_book.getKeywords()){
+      //once we find a keyword that matches the keyword arg we want to push that book to the destination vector
+      if(keyword == curr_keyword){
+        // we push back the current book into the destination vector by moving it
+        dest.push_back(std::move(curr_book));
+        //next we erase the book from the source register
+        //source.erase(source.begin()+i);
         books_moved++;
-        //source.erase(source.begin()+i); 
+        //increment books_moved to account for the most recent moved book
+        //break out of the for loop since we don't need to review the rest of the keywords and should look at the next book
+        break;
       }
+      // increment the index 
+      i++;
     }
-    index=0;
+    //once we finish looking through all the books we reset the index to 0
+    i=0;
   }
-  
-  
+
   
   // erase this comment and write your code here
 
