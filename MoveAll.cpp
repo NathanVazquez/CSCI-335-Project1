@@ -1,3 +1,11 @@
+/*
+
+CSCI 335 Spring 2024
+Project 1 - Move Semantics
+Contributor: Nathan Vazquez
+12/2024
+
+*/
 #include "MoveAll.hpp"
 #include "Book.hpp"
 
@@ -11,23 +19,38 @@ void moveAll (const std::string keyword, std::vector<Book> &source, std::vector<
   int books_moved=0; // counts books moved
   // DO NOT ALTER ABOVE HERE
 
-  int i = 0;
-  for (Book curr_book : source ){
-    //std::cout<<"current book: "<<curr_book.getTitle() <<"\n";
-    for(std::string curr_keyword : curr_book.getKeywords()){
-      //std::cout<<"current word: "<< curr_keyword <<"!= "<< keyword<<"\n";
-      if(keyword == curr_keyword){
-        dest.push_back(std::move(curr_book));
-        //source.erase(source.begin()+i);
-        books_moved++;
-        break;
+  int index = 0;
+  // for (Book curr_book : source ){
+  //   for(std::string curr_keyword : curr_book.getKeywords() ){
+  //     if(keyword == curr_keyword){
+  //       dest.push_back(std::move(curr_book));
+  //       //source.erase(source.begin()+i);
+  //       books_moved++;
+  //       break;
+  //     }
+  //     i++;
+  //   }
+  //   //std::cout<<"\n";
+  //   i=0;
+  // }
+
+  bool found_keyword = false;
+    //for (Book curr_book : source ){
+      for(int i = 0; i<source.size();i++){
+    //for(std::string curr_keyword : curr_book.getKeywords() ){
+      for (int j = 0; j<source[i].getKeywords().size();j++){
+      if(keyword == source[i].getKeywords()[j]){
+        found_keyword=true;
       }
-      i++;
+      index++;
+      if(found_keyword){
+        dest.push_back(std::move(source[i]));
+        books_moved++;
+        //source.erase(source.begin()+i); 
+      }
     }
-    //std::cout<<"\n";
-    i=0;
+    index=0;
   }
-  //std::cout<< "size of cart: "<<dest.size()<<"\n";
   
   
   

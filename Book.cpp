@@ -3,8 +3,7 @@
 CSCI 335 Spring 2024
 Project 1 - Move Semantics
 Contributor: Nathan Vazquez
-11/2023
-Additions: implementing new methods for combat and attacking other characters
+2/2024
 
 */
 
@@ -194,7 +193,12 @@ Additions: implementing new methods for combat and attacking other characters
         for (int i = 0 ; i<80;i++){
             //curr_icon+= std::to_string(*icon_ptr) + " ";
             //icon_ptr++;
+            if(i!=79){
             std::cout<<icon_[i]<< " "; 
+            }else{
+                std::cout<<icon_[i];
+            }
+        
         }
 
         //curr_icon = curr_icon.substr(0,curr_icon.size()-1);

@@ -1,3 +1,12 @@
+/*
+
+CSCI 335 Spring 2024
+Project 1 - Move Semantics
+Contributor: Nathan Vazquez
+2/2024
+
+*/
+
 #include <iostream>
 #include <fstream>
 #include <string>
