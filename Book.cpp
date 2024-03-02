@@ -1,12 +1,17 @@
+/*
+
+CSCI 335 Spring 2024
+Project 1 - Move Semantics
+Contributor: Nathan Vazquez
+11/2023
+Additions: implementing new methods for combat and attacking other characters
+
+*/
+
 #include "Book.hpp"
 #include <iterator>
 #include <bits/stdc++.h>
-    //how to do we move all the members of a vector
-    //make a new vector, go through all the items in the orinal item and then delete them
-    // to copy a  pointer A*  to B*
-    //B* = A*
-    //A* = nullptr
-    //dont delete A* 
+
     // write and document all methods in this file.
     Book::Book()
     {
@@ -183,29 +188,19 @@
         std::cout<< "Title: "<<title_ <<"\n";
         std::cout<< "Author: " << author_<< "\n"; 
         std::cout<< "ISBN: " << ISBN_<< "\n";
-        std::string icon;
-        int *icon_ptr = icon_;
+        std::cout<< "Icon: ";
+        //std::string curr_icon;
+        //int *icon_ptr = icon_;
         for (int i = 0 ; i<80;i++){
-            icon+= std::to_string(*icon_ptr) + " ";
-            icon_ptr++;
+            //curr_icon+= std::to_string(*icon_ptr) + " ";
+            //icon_ptr++;
+            std::cout<<icon_[i]<< " "; 
         }
-        icon = icon.substr(0,icon.size()-1);
-        
-        std::cout<< "Icon: " << icon<< "\n"; //this needs to be fixed
-        
-        // for(int y = 0; y < 10; y++)
-        // {                   
-        //     unsigned char bytes[100];
-        //     for(int i = 0; i < sizeof(icon_); i++)
-        //         icon_[i] = rand() % 2;
-        //     for(int x = 0; x < 10; x++)
-        //     {
-        //         int i = y * 10 + x;
-        //         printf("%d ", icon_[i]);
-        //     }
-        //     printf("\n");
-        // }   
 
+        //curr_icon = curr_icon.substr(0,curr_icon.size()-1);
+        
+        //std::cout<< "Icon: " << curr_icon<< "\n"; //this needs to be fixed
+        std::cout<<std::endl;
         std::cout<<"Price: $";
         std::cout<< std::fixed << std::setprecision(2) <<price_<< "\n";
 
